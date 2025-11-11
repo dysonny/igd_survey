@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>인터넷 게임 중독 설문 조사</title>
+</head>
+<body>
+    <div id="user-info-container" class="user-info-container">
+        <h1>인터넷 게임 중독 설문 조사</h1>
+        <h2>사용자 정보 입력</h2>
+        <form id="user-info-form" class="user-info-form">
+            <label for="name">이름:</label>
+            <input type="text" id="name" name="name" autocomplete="off"  required>
+
+            <label for="dob">생년월일:</label>
+            <input type="date" id="dob" name="dob" value="1996-08-04" required>
+
+            <label for="gender">성별:</label>
+            <select id="gender" name="gender" required>
+                <option value="" disabled selected>선택하세요</option>
+                <option value="male">남성</option>
+                <option value="female">여성</option>
+                <option value="other">기타</option>
+            </select>
+            <label for="game-addiction-score">Q.자신의 인터넷 게임 문제(과도한 몰입, 과도한 사용시간, 게임으로 인한 대인 관계 손상 등)가 있다고 생각하나요?</label>
+            <div id="game-addiction-score">
+                <!-- <p>자신의 인터넷 게임 문제(과도한 몰입, 과도한 사용시간, 게임으로 인한 대인 관계 손상 등)가 있다고 생각하나요?</p> -->
+                <div>
+                    <p>전혀 그렇지 않다</p>
+                    <input type="radio" id="score-1" name="game-addiction-score" value="1" required>
+                    <label for="score-1">1점</label>
+
+                    <input type="radio" id="score-2" name="game-addiction-score" value="2">
+                    <label for="score-2">2점</label>
+
+                    <input type="radio" id="score-3" name="game-addiction-score" value="3">
+                    <label for="score-3">3점</label>
+
+                    <input type="radio" id="score-4" name="game-addiction-score" value="4">
+                    <label for="score-4">4점</label>
+
+                    <input type="radio" id="score-5" name="game-addiction-score" value="5">
+                    <label for="score-5">5점</label>
+
+                    <input type="radio" id="score-6" name="game-addiction-score" value="6">
+                    <label for="score-6">6점</label>
+
+                    <input type="radio" id="score-7" name="game-addiction-score" value="7">
+                    <label for="score-7">7점</label>
+                    <p>매우 그렇다</p>
+                </div>
+            </div>
+
+
+
+
+            <button type="submit" id="start-button">설문조사 시작</button>
+        </form>
+    </div>
+
+    <div id="chat-container" class="chat-container" style="display: none;">
+        <div id="chat-output" class="chat-output"></div>
+        <div id="response-buttons" class="response-buttons">
+            <button class="response-button" data-value="1">1.전혀 아니다</button>
+            <button class="response-button" data-value="2">2.거의 아니다</button>
+            <button class="response-button" data-value="3">3.때떄로 그렇다</button>
+            <button class="response-button" data-value="4">4.자주 그렇다</button>
+            <button class="response-button" data-value="5">5.매우 자주 그렇다</button>
+        </div>
+        <div class="text-input-container">
+            <form id="text-input-form" class="chat-form">
+                <input type="text" id="text-input" class="text-input" placeholder="추가로 궁금한 내용이 있으면 질문을 입력해주세요..." autocomplete="off" />
+                <button type="button" id="voice-button" class="voice-button" title="음성 입력">🎤</button>
+                <button type="submit" class="chat-submit">전송</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,339 @@
+body {
+  font-family: 'Roboto', Arial, sans-serif; /* 세련된 폰트로 변경 */
+  background: url('game-console-6603120_1280.jpg') no-repeat center center fixed; /* 배경 이미지 추가 */
+  background-size: cover; /* 화면에 맞게 이미지 크기 조정 */
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* 화면 전체 높이를 채우도록 설정 */
+  display: flex; /* flexbox를 사용 */
+  align-items: center; /* 세로 중앙 정렬 */
+  justify-content: center; /* 가로 중앙 정렬 */
+}
+
+
+:root {
+  --skku-green-yellow: #88b04b;
+  --skku-blue-yellow: #00539c;
+  --skku-light-blue: #00a9e0;
+  --skku-black-gray: #333333;
+}
+
+.user-info-container, .chat-container {
+  max-width: 800px; /* 넓은 화면 지원 */
+  margin: 30px auto; /* 여백 조정 */
+  padding: 30px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* 그림자 강화 */
+}
+
+.user-info-form label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold; /* 텍스트 진하게 */
+  color: var(--skku-black-gray); /* 색상 변경 */
+}
+
+.user-info-form input, .user-info-form select, .user-info-form button {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.user-info-form button {
+  background: linear-gradient(to right, #007bff, #00c6ff); /* 그라데이션 추가 */
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: bold; /* 텍스트 진하게 */
+}
+
+.user-info-form button:hover {
+  background: linear-gradient(to right, #0056b3, #0083b3); /* 호버 시 변화 */
+}
+
+.chat-output {
+  height: 500px; /* 높이 증가 */
+  overflow-y: auto;
+  margin-bottom: 10px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #eaf4fc; /* 부드러운 파란 배경 */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  line-height: 1.8;
+  color: var(--skku-black-gray); /* 색상 변경 */
+  font-weight: bold; /* 텍스트 진하게 */
+}
+
+.user-message, .bot-message {
+  display: inline-block;
+  max-width: 70%;
+  padding: 12px 18px;
+  margin: 5px 0;
+  border-radius: 20px;
+  position: relative;
+  word-wrap: break-word;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* 부드러운 그림자 */
+  font-weight: bold; /* 텍스트 진하게 */
+}
+
+.user-message {
+  background: #4caf50; /* 녹색 배경 */
+  color: #fff;
+  align-self: flex-end;
+}
+
+.bot-message {
+  background: #f9f9f9; /* 봇 배경 */
+  color: var(--skku-black-gray); /* 색상 변경 */
+}
+
+.response-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.response-button {
+  flex: 1;
+  margin: 0 5px;
+  padding: 10px 15px;
+  font-size: 14px; /* 글자 크기 증가 */
+  background: linear-gradient(to right, #007bff, #00c6ff); /* 그라데이션 버튼 */
+  color: white;
+  border: none;
+  border-radius: 25px; /* 둥근 버튼 */
+  cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  white-space: nowrap;
+  font-weight: bold; /* 텍스트 진하게 */
+}
+
+.response-button:hover {
+  background: linear-gradient(to right, #0056b3, #0083b3);
+}
+
+.response-button:first-child {
+  margin-left: 0;
+}
+
+.response-button:last-child {
+  margin-right: 0;
+}
+
+.text-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 0;
+}
+
+.text-input:focus {
+  border-color: #007bff;
+}
+
+h1 {
+  text-align: center;
+  color: var(--skku-light-blue);  /* 색상 변경 */
+  font-size: 2em;
+  font-weight: bold; /* 텍스트 진하게 */
+}
+
+h2 {
+  color: var(--skku-black-gray); /* 색상 변경 */
+  text-align: center; /* 중앙 정렬 */
+  font-size: 1.5em;
+  font-weight: bold; /* 텍스트 진하게 */
+}
+
+.chat-form {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 15px;
+  background: #fff;
+  border-top: 1px solid #ddd;
+  border-radius: 0 0 12px 12px;
+  align-items: center;
+}
+
+.text-input {
+  flex: 1;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  font-size: 16px;
+  outline: none;
+  font-weight: bold;
+  color: var(--skku-black-gray);
+}
+
+.voice-button {
+  padding: 12px 16px;
+  background: linear-gradient(to right, #28a745, #20c997);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.voice-button:hover {
+  background: linear-gradient(to right, #218838, #1aa179);
+  transform: scale(1.05);
+}
+
+.voice-button.recording {
+  background: linear-gradient(to right, #dc3545, #c82333);
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(220, 53, 69, 0.5);
+  }
+}
+
+.chat-submit {
+  padding: 12px 20px;
+  background: linear-gradient(to right, #007bff, #00c6ff);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.chat-submit:hover {
+  background: linear-gradient(to right, #0056b3, #0083b3);
+}
+
+
+.additional-message {
+  background: #f0f0f0; /* 안내 메시지 전용 배경색 */
+  color: #333; /* 텍스트 색상 */
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+
+
+#game-addiction-score {
+  margin: 20px 0; /* 여백 추가 */
+  padding: 20px; /* 내부 여백 추가 */
+  background: #f9f9f9; /* 부드러운 배경색 */
+  border-radius: 10px; /* 모서리를 둥글게 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 부드러운 그림자 */
+}
+
+#game-addiction-score p {
+  font-size: 1.2em; /* 글자 크기 증가 */
+  font-weight: bold; /* 텍스트 진하게 */
+  color: var(--skku-light-blue); /* 글자 색상 변경 */
+  margin-bottom: 15px; /* 아래 여백 추가 */
+}
+
+#game-addiction-score div {
+  display: flex;
+  flex-wrap: wrap; /* 반응형으로 정렬 */
+  gap: 10px; /* 요소 간격 추가 */
+}
+
+#game-addiction-score label {
+  display: flex; /* 라디오 버튼과 텍스트를 정렬 */
+  align-items: center; /* 수직 정렬 */
+  padding: 10px 15px; /* 내부 여백 추가 */
+  border: 1px solid #ddd; /* 테두리 추가 */
+  border-radius: 20px; /* 둥근 테두리 */
+  background: white; /* 배경색 흰색 */
+  cursor: pointer; /* 마우스 커서 포인터로 변경 */
+  transition: background 0.3s, border-color 0.3s; /* 호버 애니메이션 추가 */
+}
+
+#game-addiction-score input[type="radio"] {
+  display: none; /* 기본 라디오 버튼 숨기기 */
+}
+
+#game-addiction-score input[type="radio"]:checked + label {
+  background: var(--skku-light-blue); /* 선택된 항목 배경색 변경 */
+  color: white; /* 텍스트 색상 변경 */
+  border-color: var(--skku-light-blue); /* 테두리 색상 변경 */
+}
+
+#game-addiction-score label:hover {
+  background: #eaf4fc; /* 호버 시 배경색 변경 */
+  border-color: #b0d4f1; /* 호버 시 테두리 색상 변경 */
+}
+
+
+
+
+.user-message {
+  background: #4caf50; /* 녹색 배경 */
+  color: #fff;
+  align-self: flex-end;
+  position: relative;
+  margin-top: 20px; /* 이미지와의 간격 */
+  margin-right: 60px; /* 오른쪽에 이미지 공간 확보 */
+  border-radius: 20px;
+  padding: 12px 18px;
+}
+
+.user-message::after {
+  content: '';
+  position: absolute;
+  top: 50%; /* 말풍선과 수직으로 정렬 */
+  right: -60px; /* 말풍선 오른쪽에 이미지 배치 */
+  transform: translateY(-50%); /* 가운데 정렬 */
+  width: 50px; /* 이미지 크기 */
+  height: 50px; /* 이미지 크기 */
+  background: url('user.png') no-repeat center center;
+  background-size: cover; /* 이미지를 비율에 맞게 조정 */
+  border-radius: 50%; /* 원형 이미지 */
+}
+
+.bot-message {
+  background: #f9f9f9; /* 봇 배경 */
+  color: var(--skku-black-gray); /* 색상 변경 */
+  position: relative;
+  margin-top: 20px; /* 이미지와의 간격 */
+  margin-left: 60px; /* 왼쪽에 이미지 공간 확보 */
+  border-radius: 20px;
+  padding: 12px 18px;
+}
+
+.bot-message::before {
+  content: '';
+  position: absolute;
+  top: 50%; /* 말풍선과 수직으로 정렬 */
+  left: -60px; /* 말풍선 왼쪽에 이미지 배치 */
+  transform: translateY(-50%); /* 가운데 정렬 */
+  width: 50px; /* 이미지 크기 */
+  height: 50px; /* 이미지 크기 */
+  background: url('bot.png') no-repeat center center;
+  background-size: cover; /* 이미지를 비율에 맞게 조정 */
+  border-radius: 50%; /* 원형 이미지 */
+}
